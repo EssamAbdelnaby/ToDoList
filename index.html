@@ -3,8 +3,8 @@
     <h1>Todo List</h1>
 
     <form id="sign">
-      <input id="alias" placeholder="username">
-      <input id="pass" type="password" placeholder="passphrase">
+      <input id="username" placeholder="username">
+      <input id="pass" type="password" placeholder="password">
       <input id="in" type="submit" value="Login">
       <input id="up" type="button" value="Register">
     </form>
@@ -13,7 +13,7 @@
 
     <form id="essam">
         <input id="say">
-        <input id="write" type="submit" value="Write">
+        <input id="add" type="submit" value="add">
     </form>
 
     <script src="https://cdn.jsdelivr.net/npm/gun/examples/jquery.js"></script>
@@ -26,12 +26,12 @@
     var user = gun.user();
 
     $('#up').on('click', function(e){
-      user.create($('#alias').val(), $('#pass').val());
+      user.create($('#username').val(), $('#pass').val());
     });
 
     $('#sign').on('submit', function(e){
       e.preventDefault();
-      user.auth($('#alias').val(), $('#pass').val());
+      user.auth($('#username').val(), $('#pass').val());
     });
 
     $('#essam').on('submit', function(e){
